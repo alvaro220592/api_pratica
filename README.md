@@ -8,3 +8,6 @@
 #### MySQL 5.7
 #### PHP 7.4
 #### Cliente Http: Postman
+
+## Documentação
+https://documenter.getpostman.com/view/14434438/TzzHmCqE
