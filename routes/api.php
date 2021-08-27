@@ -3,6 +3,7 @@
 use App\Http\Controllers\ClientController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,21 +16,26 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('clients', [ClientController::class, 'index']);
 
-Route::post('client/store', [ClientController::class, 'store']);
-
-Route::get('client/show/{id}', [ClientController::class, 'show']);
-
-Route::put('client/update/{id}', [ClientController::class, 'update']);
-
-Route::delete('client/delete/{id}', [ClientController::class, 'destroy']);
+Route::post('login', [LoginController::class, 'login']);
 
 Route::middleware(['auth:sanctum'])->group(function (){
     
     Route::get('/user', function(Request $request){
         return $request->user;
     });
+
+    Route::get('clients', [ClientController::class, 'index']);
+
+    Route::post('client/store', [ClientController::class, 'store']);
+
+    Route::get('client/show/{id}', [ClientController::class, 'show']);
+
+    Route::put('client/update/{id}', [ClientController::class, 'update']);
+
+    Route::delete('client/delete/{id}', [ClientController::class, 'destroy']);
+
+    Route::post('logout', [LoginController::class, 'logout']);
 
 });
 /* 
